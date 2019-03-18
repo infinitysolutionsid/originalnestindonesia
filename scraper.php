@@ -1,27 +1,57 @@
-<?
-// This is a template for a PHP scraper on morph.io (https://morph.io)
-// including some code snippets below that you should find helpful
+<!-- +-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+-+ +-+-+-+ +-+-+-+-+-+ +-+-+-+ +-+-+
+|b|i|n|t|a|n|g| |h|e|r|e|.| |w|o|w|,| |y|o|u| |f|o|u|n|d| |m|e|!| |:|)|
++-+-+-+-+-+-+-+ +-+-+-+-+-+ +-+-+-+-+ +-+-+-+ +-+-+-+-+-+ +-+-+-+ +-+-+
+-->
+<?php
+// TITLE MENU
+$title = "Indonesia Bird Nest | Original Indonesia Birds Nest";
+$titleproduct = "Product And Solutions | Heat Transfer";
+$titleproductii = "Product And Solutions | Separation Equipment";
+$titleproductiii = "Product And Solutions | Fluid Handling Equipment";
+$titleindustries = "WH ALLEN | Industries";
+$titlesupport = "WH ALLEN | Services And Support";
+$titlecontact = "WH ALLEN | Contact Us";
+$title404 = "404 | Page not found!";
+$about = "WH ALLEN | About Us";
+// CONTENT HERE
+include 'content/menu.php';
+if (isset($_GET['page'])) {
+    $web = $_GET['page'];
+    switch ($web) {
+        case 'blog';
+            include "content/blog.php";
+            break;
+        case 'home':
+            include "content/home.php";
+            break;
+        case 'why-choose-us':
+            include "content/chooseus.php";
+            break;
+        case 'about-us';
+            include "content/aboutus.php";
+            break;
+        case 'contact-us';
+            include "content/contactus.php";
+            break;
+        case 'bird-nestgallery';
+            include "content/birdgallery.php";
+            break;
+        case 'company-gallery';
+            include "content/companygallery.php";
+            break;
+        case 'thank-you';
+            include "content/thank.php";
+            break;
+        default:
+            include "content/404.php";
+            break;
+    }
+} else {
+    include "content/home.php";
+    include "content/gallery_home.php";
+}
 
-// require 'scraperwiki.php';
-// require 'scraperwiki/simple_html_dom.php';
-//
-// // Read in a page
-// $html = scraperwiki::scrape("http://foo.com");
-//
-// // Find something on the page using css selectors
-// $dom = new simple_html_dom();
-// $dom->load($html);
-// print_r($dom->find("table.list"));
-//
-// // Write out to the sqlite database using scraperwiki library
-// scraperwiki::save_sqlite(array('name'), array('name' => 'susan', 'occupation' => 'software developer'));
-//
-// // An arbitrary query against the database
-// scraperwiki::select("* from data where 'name'='peter'")
-
-// You don't have to do things with the ScraperWiki library.
-// You can use whatever libraries you want: https://morph.io/documentation/php
-// All that matters is that your final data is written to an SQLite database
-// called "data.sqlite" in the current working directory which has at least a table
-// called "data".
+include 'content/footer.php';
 ?>
+    <!-- END CONTENT HERE -->
+
